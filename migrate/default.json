@@ -1,0 +1,25 @@
+{
+  "users": [
+    {
+      "id": "457c17c8-7a74-11eb-9439-0242ac130002",
+      "email": "admin@gmail.com",
+      "phone": "0123455678",
+      "password_hash": "pbkdf2:sha256:150000$VuKE7ySs$ced9ddc3a3ffddbf73f47af936797eb2b4c594e39e452456f9496f72ed7028ce",
+      "full_name": "Admin",
+      "gender": 1,
+      "created_date": 1633277398,
+      "group_id" : "6d9fd6ee-2461-11ec-9621-0242ac160001"
+    },
+    {
+      "id": "6d9fd4aa-2461-11ec-9621-0242ac130002",
+      "email": "customer@gmail.com",
+      "phone": "0123455679",
+      "password_hash": "pbkdf2:sha256:150000$VuKE7ySs$ced9ddc3a3ffddbf73f47af936797eb2b4c594e39e452456f9496f72ed7028ce",
+      "full_name": "Customer",
+      "gender": 1,
+      "is_admin": false,
+      "created_date": 1633277398,
+      "group_id" : "6d9fd6ee-2461-11ec-9621-0242ac160002"
+    }
+  ]
+}

@@ -1,0 +1,267 @@
+{
+  "permissions": [
+    {
+      "id": "457c17c8-7a74-11eb-9439-0242ac170001",
+      "name": "update password",
+      "resource": "put@/api/v1/manage/users/password"
+    },
+    {
+      "id": "457c17c8-7a74-11eb-9439-0242ac170002",
+      "name": "updaate profile",
+      "resource": "put@/api/v1/manage/users/profile"
+    },
+    {
+      "id": "457c17c8-7a74-11eb-9439-0242ac170003",
+      "name": "get thong tin profile",
+      "resource": "get@/api/v1/manage/users/profile"
+    },
+    {
+      "id": "457c17c8-7a74-11eb-9439-0242ac170004",
+      "name": "get danh sach info",
+      "resource": "get@/api/v1/helper/site-map"
+    },
+    {
+      "id": "457c17c8-7a74-11eb-9439-0242ac170005",
+      "name": "upload images",
+      "resource": "post@/api/v1/manage/images"
+    },
+    {
+      "id": "457c17c8-7a74-11eb-9439-0242ac170006",
+      "name": "them user",
+      "resource": "post@/api/v1/manage/users"
+    },
+    {
+      "id": "457c17c8-7a74-11eb-9439-0242ac170007",
+      "name": "lay thong tin user",
+      "resource": "get@/api/v1/manage/users"
+    },
+    {
+      "id": "457c17c8-7a74-11eb-9439-0242ac170008",
+      "name": "update password",
+      "resource": "put@/api/v1/users/password"
+    },
+    {
+      "id": "457c17c8-7a74-11eb-9439-0242ac170009",
+      "name": "update profile",
+      "resource": "put@/api/v1/users/profile"
+    },
+    {
+      "id": "457c17c8-7a74-11eb-9439-0242ac170010",
+      "name": "lay thong tin profile",
+      "resource": "get@/api/v1/users/profile"
+    },
+    {
+      "id": "457c17c8-7a74-11eb-9439-0242ac170011",
+      "name": "update avatar",
+      "resource": "put@/api/v1/users/avatar"
+    },
+    {
+      "id": "457c17c8-7a74-11eb-9439-0242ac170012",
+      "name": "refresh",
+      "resource": "post@/api/v1/auth/refresh"
+    },
+    {
+      "id": "457c17c8-7a74-11eb-9439-0242ac170013",
+      "name": "logout",
+      "resource": "delete@/api/v1/auth/logout"
+    },
+    {
+      "id": "457c17c8-7a74-11eb-9439-0242ac170014",
+      "name": "login",
+      "resource": "post@/api/v1/auth/login"
+    },
+    {
+      "id": "457c17c8-7a74-11eb-9439-0242ac170015",
+      "name": "register users",
+      "resource": "post@/api/v1/users"
+    },
+    {
+      "id": "457c17c8-7a74-11eb-9439-0242ac170016",
+      "name": "get user",
+      "resource": "get@/api/v1/users"
+    }
+  ],
+  "roles": [
+    {
+      "id": "6d9fd6ee-2461-11ec-9621-0242ac150001",
+      "key": "super_admin",
+      "name": "super admin"
+    },
+    {
+      "id": "6d9fd6ee-2461-11ec-9621-0242ac150002",
+      "key": "admin",
+      "name": "admin"
+    },
+    {
+      "id": "6d9fd6ee-2461-11ec-9621-0242ac150003",
+      "key": "sub_admin",
+      "name": "sub admin"
+    },
+    {
+      "id": "6d9fd6ee-2461-11ec-9621-0242ac150004",
+      "key": "user_normal",
+      "name": "user normal"
+    }
+  ],
+  "role_permission": [
+    {
+      "id": "6d9fd6ee-2461-11ec-9621-0242ac230001",
+      "permission_id": "457c17c8-7a74-11eb-9439-0242ac170001",
+      "role_id": "6d9fd6ee-2461-11ec-9621-0242ac150001"
+    },
+    {
+      "id": "6d9fd6ee-2461-11ec-9621-0242ac230002",
+      "permission_id": "457c17c8-7a74-11eb-9439-0242ac170002",
+      "role_id": "6d9fd6ee-2461-11ec-9621-0242ac150001"
+    },
+    {
+      "id": "6d9fd6ee-2461-11ec-9621-0242ac430003",
+      "permission_id": "457c17c8-7a74-11eb-9439-0242ac170003",
+      "role_id": "6d9fd6ee-2461-11ec-9621-0242ac150001"
+    },
+    {
+      "id": "6d9fd6ee-2461-11ec-9621-0242ac230003",
+      "permission_id": "457c17c8-7a74-11eb-9439-0242ac170004",
+      "role_id": "6d9fd6ee-2461-11ec-9621-0242ac150001"
+    },
+    {
+      "id": "6d9fd6ee-2461-11ec-9621-0242ac230004",
+      "permission_id": "457c17c8-7a74-11eb-9439-0242ac170005",
+      "role_id": "6d9fd6ee-2461-11ec-9621-0242ac150001"
+    },
+    {
+      "id": "6d9fd6ee-2461-11ec-9621-0242ac230005",
+      "permission_id": "457c17c8-7a74-11eb-9439-0242ac170006",
+      "role_id": "6d9fd6ee-2461-11ec-9621-0242ac150001"
+    },
+    {
+      "id": "6d9fd6ee-2461-11ec-9621-0242ac230006",
+      "permission_id": "457c17c8-7a74-11eb-9439-0242ac170007",
+      "role_id": "6d9fd6ee-2461-11ec-9621-0242ac150001"
+    },
+    {
+      "id": "6d9fd6ee-2461-11ec-9621-0242ac230007",
+      "permission_id": "457c17c8-7a74-11eb-9439-0242ac170008",
+      "role_id": "6d9fd6ee-2461-11ec-9621-0242ac150001"
+    },
+    {
+      "id": "6d9fd6ee-2461-11ec-9621-0242ac230008",
+      "permission_id": "457c17c8-7a74-11eb-9439-0242ac170009",
+      "role_id": "6d9fd6ee-2461-11ec-9621-0242ac150001"
+    },
+    {
+      "id": "6d9fd6ee-2461-11ec-9621-0242ac430011",
+      "permission_id": "457c17c8-7a74-11eb-9439-0242ac170010",
+      "role_id": "6d9fd6ee-2461-11ec-9621-0242ac150001"
+    },
+    {
+      "id": "6d9fd6ee-2461-11ec-9621-0242ac230009",
+      "permission_id": "457c17c8-7a74-11eb-9439-0242ac170011",
+      "role_id": "6d9fd6ee-2461-11ec-9621-0242ac150001"
+    },
+    {
+      "id": "6d9fd6ee-2461-11ec-9621-0242ac230010",
+      "permission_id": "457c17c8-7a74-11eb-9439-0242ac170012",
+      "role_id": "6d9fd6ee-2461-11ec-9621-0242ac150001"
+    },
+    {
+      "id": "6d9fd6ee-2461-11ec-9621-0242ac230011",
+      "permission_id": "457c17c8-7a74-11eb-9439-0242ac170013",
+      "role_id": "6d9fd6ee-2461-11ec-9621-0242ac150001"
+    },
+    {
+      "id": "6d9fd6ee-2461-11ec-9621-0242ac230012",
+      "permission_id": "457c17c8-7a74-11eb-9439-0242ac170014",
+      "role_id": "6d9fd6ee-2461-11ec-9621-0242ac150001"
+    },
+    {
+      "id": "6d9fd6ee-2461-11ec-9621-0242ac230013",
+      "permission_id": "457c17c8-7a74-11eb-9439-0242ac170015",
+      "role_id": "6d9fd6ee-2461-11ec-9621-0242ac150001"
+    },
+    {
+      "id": "6d9fd6ee-2461-11ec-9621-0242ac230014",
+      "permission_id": "457c17c8-7a74-11eb-9439-0242ac170016",
+      "role_id": "6d9fd6ee-2461-11ec-9621-0242ac150001"
+    },
+    {
+      "permission_id": "457c17c8-7a74-11eb-9439-0242ac170008",
+      "role_id": "6d9fd6ee-2461-11ec-9621-0242ac150004",
+      "id": "6d9fd6ee-2461-11ec-9621-0242ac230015"
+    },
+    {
+      "permission_id": "457c17c8-7a74-11eb-9439-0242ac170009",
+      "role_id": "6d9fd6ee-2461-11ec-9621-0242ac150004",
+      "id": "6d9fd6ee-2461-11ec-9621-0242ac230016"
+    },
+    {
+      "permission_id": "457c17c8-7a74-11eb-9439-0242ac170010",
+      "role_id": "6d9fd6ee-2461-11ec-9621-0242ac150004",
+      "id": "6d9fd6ee-2461-11ec-9621-0242ac230017"
+    },
+    {
+      "permission_id": "457c17c8-7a74-11eb-9439-0242ac170011",
+      "role_id": "6d9fd6ee-2461-11ec-9621-0242ac150004",
+      "id": "6d9fd6ee-2461-11ec-9621-0242ac230018"
+    },
+    {
+      "permission_id": "457c17c8-7a74-11eb-9439-0242ac170012",
+      "role_id": "6d9fd6ee-2461-11ec-9621-0242ac150004",
+      "id": "6d9fd6ee-2461-11ec-9621-0242ac230019"
+    },
+    {
+      "permission_id": "457c17c8-7a74-11eb-9439-0242ac170013",
+      "role_id": "6d9fd6ee-2461-11ec-9621-0242ac150004",
+      "id": "6d9fd6ee-2461-11ec-9621-0242ac230020"
+    },
+    {
+      "permission_id": "457c17c8-7a74-11eb-9439-0242ac170014",
+      "role_id": "6d9fd6ee-2461-11ec-9621-0242ac150004",
+      "id": "6d9fd6ee-2461-11ec-9621-0242ac230021"
+    },
+    {
+      "permission_id": "457c17c8-7a74-11eb-9439-0242ac170015",
+      "role_id": "6d9fd6ee-2461-11ec-9621-0242ac150004",
+      "id": "6d9fd6ee-2461-11ec-9621-0242ac230022"
+    },
+    {
+      "permission_id": "457c17c8-7a74-11eb-9439-0242ac170016",
+      "role_id": "6d9fd6ee-2461-11ec-9621-0242ac150004",
+      "id": "6d9fd6ee-2461-11ec-9621-0242ac230023"
+    }
+  ],
+  "groups": [
+    {
+      "id": "6d9fd6ee-2461-11ec-9621-0242ac160001",
+      "key": "super_admin",
+      "name": "super admin"
+    },
+    {
+      "id": "6d9fd6ee-2461-11ec-9621-0242ac160002",
+      "key": "group_normal",
+      "name": "group normal"
+    },
+    {
+      "id": "6d9fd6ee-2461-11ec-9621-0242ac160003",
+      "key": "admin",
+      "name": "admin"
+    },
+    {
+      "id": "6d9fd6ee-2461-11ec-9621-0242ac160004",
+      "key": "sub_admin",
+      "name": "sub admin"
+    }
+  ],
+  "group_role": [
+    {
+      "id": "6d9fd6ee-2461-11ec-9621-0242ac330001",
+      "role_id": "6d9fd6ee-2461-11ec-9621-0242ac150001",
+      "group_id": "6d9fd6ee-2461-11ec-9621-0242ac160001"
+    },
+    {
+      "id": "6d9fd6ee-2461-11ec-9621-0242ac330002",
+      "role_id": "6d9fd6ee-2461-11ec-9621-0242ac150004",
+      "group_id": "6d9fd6ee-2461-11ec-9621-0242ac160002"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    command: gunicorn --workers=3 --threads=1 -b 0.0.0.0:5012 server:app
+    ports:
+      - "5012:5012"
+    networks:
+      - mn-backend-net
+
+networks:
+  mn-backend-net:
+    name: mn-backend-net
