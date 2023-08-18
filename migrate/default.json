@@ -4,7 +4,8 @@
       "id": "457c17c8-7a74-11eb-9439-0242ac130002",
       "email": "admin@gmail.com",
       "phone": "0123455678",
-      "password_hash": "pbkdf2:sha256:150000$VuKE7ySs$ced9ddc3a3ffddbf73f47af936797eb2b4c594e39e452456f9496f72ed7028ce",
+      "password_hash": "pbkdf2:sha256:260000$evKr3okbwGQ1N26O$967c897decfe73e830bb10da92f841fbeba3000f6d00c93324c331078d7ffae9",
+      
       "full_name": "Admin",
       "gender": 1,
       "created_date": 1633277398,

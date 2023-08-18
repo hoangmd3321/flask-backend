@@ -36,7 +36,7 @@ def register_extensions(app):
     db.app = app
     db.init_app(app)  # SQLAlchemy
     jwt.init_app(app)
-
+    db.create_all()
     @app.after_request
     def after_request(response):
         """
@@ -121,4 +121,5 @@ def register_blueprints(app):
 
     app.register_blueprint(api_v1.auth.api, url_prefix='/api/v1/auth')
     app.register_blueprint(api_v1.user.api, url_prefix='/api/v1/users')
+
 

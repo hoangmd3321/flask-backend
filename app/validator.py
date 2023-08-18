@@ -79,7 +79,7 @@ class AuthValidation(Schema):
     }
     """
     email = fields.String(required=False, validate=validate.Length(min=1, max=50))
-    password = fields.String(required=False, validate=validate.Length(min=1, max=32))
+    password = fields.String(required=False, validate=validate.Length(min=8, max=32))
     phone = fields.String(required=False, validate=validate.Length(min=1, max=50))
     otp = fields.String(required=False, validate=validate.Length(min=1, max=6))
 
@@ -91,6 +91,7 @@ class AuthValidation(Schema):
         elif data.get('email', None):
             if not data.get('password', None):
                 raise ValidationError("Missing password field")
+        
 
 
 class SendOTPValidation(Schema):

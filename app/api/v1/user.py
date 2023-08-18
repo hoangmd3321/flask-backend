@@ -53,6 +53,10 @@ def register():
 
     email = json_body.get("email")
     password = json_body.get("password")
+    full_name = json_body.get("full_name", None)
+    avatar_url = json_body.get("avatar_url", None)
+    
+
 
     duplicated_user = User.query.filter_by(email=email).first()
     if duplicated_user:
@@ -129,10 +133,21 @@ def change_password():
     """ This api for all user change their password.
 
         Request Body:
+            current_password required, string
+            new_password required, string
 
         Returns:
+            new password
+            current password
 
         Examples::
+        {
+            "code": 200,
+            "data": {},
+            "message": "Change password successfully!",
+            "status": true,
+            "version": "Mayno website v1.0"
+        }
 
     """
 
@@ -276,6 +291,3 @@ def change_avatar():
     return send_result(message="Change avatar successfully")
 
 
-@api.route('login', methods = ['POST'])
-def login():
-    pass

@@ -158,6 +158,17 @@ def allowed_file(filename: str) -> bool:
     """
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS_FILES
 
+def allowed_file_img(filename):
+    """
+
+    Args:
+        filename:
+
+    Returns:
+
+    """
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS_IMG
+
 
 def get_datetime_now() -> datetime:
     """
@@ -191,16 +202,7 @@ def is_password_contain_space(password: str) -> bool:
     return ' ' in password
 
 
-def allowed_file_img(filename):
-    """
 
-    Args:
-        filename:
-
-    Returns:
-
-    """
-    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS_IMG
 
 
 def generate_product_code(index: int):

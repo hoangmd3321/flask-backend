@@ -3,6 +3,8 @@ from datetime import timedelta
 from flask import Blueprint, request
 from flask_jwt_extended import (create_access_token, create_refresh_token,
                                 get_jwt_identity, get_raw_jwt)
+from flask_jwt_extended.exceptions import NoAuthorizationError
+
 from werkzeug.security import check_password_hash
 
 from app.extensions import jwt, db
@@ -11,8 +13,10 @@ from app.models import Token, User, GroupRole, RolePermission
 from app.utils import send_result, send_error, logged_input, get_timestamp_now
 from app.validator import AuthValidation, SendOTPValidation
 
-ACCESS_EXPIRES = timedelta(days=10)
-REFRESH_EXPIRES = timedelta(days=20)
+# ACCESS_EXPIRES = timedelta(days=10)
+# REFRESH_EXPIRES = timedelta(days=20)
+ACCESS_EXPIRES = timedelta(seconds=5)
+REFRESH_EXPIRES = timedelta(minutes=5)
 api = Blueprint('auth', __name__)
 
 
@@ -43,9 +47,8 @@ def login():
     This is controller of the login api
 
     Requests Body:
-            email: string, require
-
-            password: string, require
+            email: string, optional
+            password: string, optional
             phone: string, optional
             otp: string,optional
 
@@ -53,7 +56,7 @@ def login():
             {
                 'access_token': access_token,
                 'refresh_token': refresh_token,
-                'username': username
+                
             }
 
     Examples::
@@ -62,7 +65,7 @@ def login():
             "data": {
                 "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MjU3Mjg1MTQsIm5iZiI6MTYyNTcyODUxNCwianRpIjoiODkzNDYwMjMtZTkyOS00YmM2LWIyMDktZWVlYzI2Yzg0OTA2IiwiZXhwIjoxNjI2NTkyNTE0LCJpZGVudGl0eSI6ImFkbWluIiwiZnJlc2giOmZhbHNlLCJ0eXBlIjoiYWNjZXNzIn0.qBSx-4u22a3zG2eJUKGhd714swX4zmLJ5WGCpQLzLQM",
                 "refresh_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MjU3Mjg1MTQsIm5iZiI6MTYyNTcyODUxNCwianRpIjoiMGVhNWEzMzAtZmZhYi00Mzk3LTgzOWQtYzQ2Y2VlYjIzY2RkIiwiZXhwIjoxNjI3NDU2NTE0LCJpZGVudGl0eSI6ImFkbWluIiwidHlwZSI6InJlZnJlc2gifQ.qlM2GGju3k9d9J05t4qNu9iM_uqUdmf7DHB2MW1Tb24",
-                "email": "admin"
+                "email": "admin@gmail.com"
             },
             "jsonrpc": "2.0",
             "message": "Logged in successfully!",
@@ -71,7 +74,8 @@ def login():
         }
 
     """
-
+    
+    
     try:
         json_req = request.get_json()
     except Exception as ex:
@@ -103,18 +107,18 @@ def login():
     else:
         user = User.query.filter_by(phone=phone).first()
     if user is None:
-        return send_error(message='Invalid email or password.\nPlease try again')
+        return send_error(message='Invalid email/phone or password.\nPlease try again')
 
     if password and not check_password_hash(user.password_hash, password):
-        return send_error(message='Invalid email or password.\nPlease try again')
+        return send_error(message='Invalid email/phone or password.\nPlease try again')
     if otp and (str(user.otp) != otp or user.otp_ttl < get_timestamp_now()):
         return send_error(message='Invalid OTP.\nPlease try again')
 
     list_permission = get_permissions(user)
     access_token = create_access_token(identity=user.id, expires_delta=ACCESS_EXPIRES,
-                                       user_claims={"list_permission": list_permission})
+                                    user_claims={"list_permission": list_permission})
     refresh_token = create_refresh_token(identity=user.id, expires_delta=REFRESH_EXPIRES,
-                                         user_claims={"list_permission": list_permission})
+                                        user_claims={"list_permission": list_permission})
 
     # Store the tokens in our store with a status of not currently revoked.
     Token.add_token_to_database(access_token, user.id)
@@ -139,7 +143,6 @@ def send_otp():
             {
                 'access_token': access_token,
                 'refresh_token': refresh_token,
-                'username': username
             }
 
     Examples::
@@ -177,7 +180,8 @@ def send_otp():
     phone = json_body.get("phone")
     user = User.query.filter_by(phone=phone).first()
     if user is None:
-        return send_error(message='Tài khoản không tồn tại. Vui lòng thử lại')
+        return send_error(message='Account not existed. Please try again with other phone number')
+    
 
     # TODO: generate OTP code and send to user phone number
     # Default OTP 123456 and TTL = 1 minute
@@ -185,7 +189,7 @@ def send_otp():
     user.otp_ttl = get_timestamp_now() + 60
     db.session.commit()
 
-    return send_result(message="Một mã xác nhận đã được gửi đến điện thoại của bạn!")
+    return send_result(message="An otp has successfully sent to your phone!")
 
 
 @api.route('/refresh', methods=['POST'])
